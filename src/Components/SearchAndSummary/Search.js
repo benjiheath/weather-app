@@ -19,12 +19,14 @@ const Search = () => {
 		// if field empty, exit fn & alert user
 		if (!searchInput) {
 			setFieldIsEmpty(true);
+			setIsNullResults(false);
 			return;
 		}
 
 		try {
 			setResultsLoading(true);
 			setSearchResults(null);
+			setIsNullResults(false);
 
 			const response = await axios.get(
 				`https://cors-anywhere.herokuapp.com/http://www.metaweather.com/api/location/search/?query=${searchInput}`
