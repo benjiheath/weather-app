@@ -406,7 +406,7 @@ select {
 	margin-top: 50%;
 }
 
-@media (max-width: 1910px) {
+@media screen and (max-width: 1910px) {
 	.App {
 		max-height: 100vh;
 		min-height: 100vh;
@@ -461,7 +461,7 @@ select {
 	}
 
 	.highlights {
-		margin-top: 5%;
+		margin-top: 3%;
 		/* justify-content: center; */
 	}
 
@@ -493,5 +493,14 @@ select {
 
 	.footer {
 		margin-top: 60px;
+	}
+
+	.lbl-display {
+		margin: 10px 0 15px 0;
+	}
+
+	.unit-select {
+		margin: 10px 0 15px 0;
+		width: 20%;
 	}
 }
