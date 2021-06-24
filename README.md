@@ -29,6 +29,7 @@ This was also my first attempt at accurately reproducing a design. There are a f
 
 <h3>**todo**</h3>
 
+- implement responsiveness
 - Error handling
 - perform search on Enter keypress
 - further refactoring

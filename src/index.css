@@ -37,10 +37,11 @@ select {
 
 .main-container {
 	display: flex;
-	max-width: 1440px;
+	max-width: 100vw;
 	min-width: 1440px;
 	justify-content: space-between;
-	min-height: 1023px;
+	/* min-height: 1023px; */
+	/* max-height: 100vh; */
 }
 
 /* ----- common containers ----- */
@@ -403,4 +404,94 @@ select {
 
 .spinner {
 	margin-top: 50%;
+}
+
+@media (max-width: 1910px) {
+	.App {
+		max-height: 100vh;
+		min-height: 100vh;
+		display: flex;
+		justify-content: center;
+		background-color: var(--primary-color-dark);
+	}
+
+	.main-container {
+		display: flex;
+		min-width: 100vw;
+		max-width: 100vw;
+		max-height: 100vh;
+		min-height: 100vh;
+		justify-content: flex-start;
+	}
+
+	.summary {
+		background-color: var(--secondary-color-dark);
+		height: 100%;
+		width: 35%;
+		justify-content: space-evenly;
+	}
+
+	.summary-img-container {
+		height: 280px !important;
+	}
+
+	.sum-head {
+		margin-top: 2%;
+	}
+
+	.btn-open-search {
+		margin-left: 5%;
+	}
+
+	.summary-temp-desc {
+		height: 29%;
+		margin-bottom: 5%;
+		justify-content: space-evenly;
+	}
+
+	.summary-temp-num {
+		font-size: 500%;
+	}
+
+	.main {
+		margin-left: 0;
+		width: 65%;
+		max-height: 20%;
+		justify-content: flex-start;
+	}
+
+	.highlights {
+		margin-top: 5%;
+		/* justify-content: center; */
+	}
+
+	.highlight-cards-row-1 {
+		margin-top: 3%;
+	}
+
+	.highlight-cards-row-2 {
+		margin-top: 2%;
+	}
+
+	.highlight-card-l {
+		height: 120px;
+		justify-content: space-around;
+	}
+
+	.highlight-card-l span {
+		font-size: 250%;
+	}
+
+	.highlight-card-s {
+		height: 100px;
+		justify-content: space-evenly;
+	}
+
+	.highlight-card-s span {
+		font-size: 250%;
+	}
+
+	.footer {
+		margin-top: 60px;
+	}
 }

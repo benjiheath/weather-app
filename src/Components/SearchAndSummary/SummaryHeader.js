@@ -8,7 +8,7 @@ const SummaryHeader = () => {
 	const { userLocationID } = useContext(UserLocationContext);
 
 	return (
-		<div className="flex-row-between row-80">
+		<div className="flex-row-between row-80 sum-head">
 			<button className="btn-open-search" onClick={() => setShowSearch(true)}>
 				Search for places
 			</button>
