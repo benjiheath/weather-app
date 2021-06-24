@@ -7,6 +7,8 @@ import SearchAndSummary from "./Components/SearchAndSummary/SearchAndSummary";
 import Main from "./Components/Main/Main";
 import Spinner from "./Components/Spinner";
 
+import { css } from "@emotion/react";
+
 function App() {
 	const [userLocationID, setUserLocationID] = useState(null);
 	const [isLoading, setLoading] = useState(true);
@@ -113,8 +115,17 @@ function App() {
 		getDates();
 	}, [weatherData]);
 
+	const override = css`
+		display: block;
+		position: absolute;
+		top: 45%;
+		left: 50%;
+		border-color: red;
+	`;
+
 	return (
 		<div className="App">
+			{isLoading && <Spinner override={override} />}
 			<div className="main-container">
 				{isError && <h1>Error</h1>}
 				<UserLocationContext.Provider
@@ -130,7 +141,6 @@ function App() {
 						userLocationID,
 					}}
 				>
-					{isLoading && <Spinner />}
 					{!isLoading && weatherData && dates && (
 						<>
 							<SearchAndSummary />

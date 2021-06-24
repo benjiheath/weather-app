@@ -413,6 +413,7 @@ select {
 		display: flex;
 		justify-content: center;
 		background-color: var(--primary-color-dark);
+		position: relative;
 	}
 
 	.main-container {
@@ -502,5 +503,10 @@ select {
 	.unit-select {
 		margin: 10px 0 15px 0;
 		width: 20%;
+	}
+
+	.spinner {
+		position: absolute;
+		top: 50%;
 	}
 }

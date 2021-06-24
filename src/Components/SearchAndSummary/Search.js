@@ -3,7 +3,7 @@ import { LeftWindowContext } from "./LeftWindowContext";
 import SearchResult from "./SearchResult";
 import Spinner from "../Spinner";
 import { CgClose } from "react-icons/cg";
-import { UserLocationContext } from "../UserLocationContext";
+import { css } from "@emotion/react";
 import axios from "axios";
 
 const Search = () => {
@@ -48,6 +48,12 @@ const Search = () => {
 		}
 	};
 
+	const override = css`
+		display: block;
+		margin: 50% auto;
+		border-color: red;
+	`;
+
 	return (
 		<div className="summary search-window">
 			<div className="close-wrapper row-80">
@@ -72,7 +78,7 @@ const Search = () => {
 				</button>
 			</div>
 			<div className="search-results-wrapper row-80">
-				{resultsLoading && <Spinner />}
+				{resultsLoading && <Spinner override={override} />}
 				{isNullResults && <p>No locations match your query.</p>}
 				{fieldIsEmpty && <p>Please enter a search term</p>}
 				{searchResults &&
