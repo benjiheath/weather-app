@@ -4,7 +4,7 @@
 
 <div align="center">
   <h3>
-    <a href="#">
+    <a href="https://vigorous-bhaskara-117cc0.netlify.app/">
       Demo
     </a>
     <span> | </span>
@@ -16,8 +16,8 @@
 
 ## Description
 
-Basic weather app built with React. My intention with this was primarily to practice dealing with APIs. Here I use the [MetaWeather API](https://www.metaweather.com/api/) to fetch weather and location data, and the geolocation API to display weather for user's location on page load.
-This was also my first attempt at accurately reproducing a design. There are a few visual discrepancies between the finished product and the original, but I'm happy with the result.
+Basic weather app built with React. My intention with this was primarily to practice dealing with APIs. Here I use the [MetaWeather API](https://www.metaweather.com/api/) to fetch weather and location data, and the geolocation API to display weather for user's location by default.
+This was also my first attempt at accurately reproducing a design. There are some visual discrepancies between the finished product and the original, but I'm happy with the result.
 
 <br>
 
@@ -29,7 +29,8 @@ This was also my first attempt at accurately reproducing a design. There are a f
 
 <h3>**todo**</h3>
 
-- implement responsiveness
+- Add icons to first two highlight cards
+- Make responsive
 - Error handling
 - perform search on Enter keypress
 - further refactoring
