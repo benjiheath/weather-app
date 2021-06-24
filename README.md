@@ -1,10 +1,8 @@
-<h1>Weather App</h1>
-
-<div>
+<div align="center">
    Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
 </div>
 
-<div>
+<div align="center">
   <h3>
     <a href="#">
       Demo
@@ -23,7 +21,7 @@ This was also my first attempt at accurately reproducing a design. There are a f
 
 <br>
 
-<h3>**Changes I would like to make**</h3>
+<h3>Changes I would like to make</h3>
 
 - Day/night mode toggling, however I need to figure out how to implement it without making a mess of things
 - I need to change the apps behaviour during loading states so that individual sections/components appear to load while retaining the app display/layout (instead of just a spinner on a blank page)
