@@ -5,7 +5,7 @@ import DateLocation from "./DateLocation";
 
 const Summary = () => {
 	return (
-		<div className="summary flex-column-even">
+		<div className="summary flex-column-between">
 			<SummaryHeader />
 			<Img />
 			<TempDesc />

@@ -6,7 +6,6 @@
 	--icon-color-dark: #6e707a;
 	--text-color-dark: #e7e7eb;
 	--text-color-2-dark: #a09fb1;
-
 	--lbl-btn-shadow-dark: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
@@ -25,12 +24,10 @@ input,
 textarea,
 select {
 	font: inherit;
-	/* color: rgb(53, 53, 53); */
 }
 
 .App {
 	min-height: 100vh;
-	max-height: 100vh;
 	max-width: 100vw;
 	display: flex;
 	justify-content: center;
@@ -42,7 +39,6 @@ select {
 	max-width: 100vw;
 	min-width: 90%;
 	justify-content: space-between;
-	/* min-height: 1023px; */
 	max-height: 100vh;
 }
 
@@ -82,11 +78,15 @@ select {
 
 .summary {
 	background-color: var(--secondary-color-dark);
-	height: 100%;
+	max-height: 100vh;
 	width: 33%;
 }
 
 /* header */
+
+.sum-head {
+	margin-top: 3vh;
+}
 
 .btn-open-search {
 	width: 20%;
@@ -132,13 +132,12 @@ select {
 	background-position: center;
 
 	width: 100%;
-	height: 400px;
+	height: 30%;
 }
 
 .summary-temp-desc {
-	height: 300px;
+	height: 25%;
 	color: var(--text-color-dark);
-	margin-bottom: 100px;
 }
 
 .summary-temp-num {
@@ -159,9 +158,9 @@ select {
 }
 
 .date-location-container {
-	height: 80px;
+	height: 70px;
 	color: var(--text-color-2-dark);
-	margin-bottom: 30px;
+	margin-bottom: 5vh;
 }
 
 .date {
@@ -190,25 +189,27 @@ select {
 	flex-direction: row;
 	align-content: center;
 	justify-content: flex-end;
-	margin-top: 25px;
+	margin-top: 4vh;
 }
 
 .close-icon {
-	/* margin: 20px 20px 0 0; */
 	color: var(--text-color-dark);
 	transform: scale(1.75);
 	cursor: pointer;
 }
 
+.search-input-btn-wrapper {
+	margin-top: 1vh;
+}
+
 .search-input-btn-wrapper input {
-	width: 260px;
+	width: 70%;
 	height: 45px;
 	background-color: var(--secondary-color-dark);
 	outline: none;
 	border: none;
 	border: 2px solid var(--text-color-2-dark);
 	padding-left: 20px;
-	position: relative;
 }
 
 .empty-input {
@@ -270,21 +271,21 @@ select {
 
 .main {
 	background-color: var(--primary-color-dark);
-	height: 100%;
+	max-height: 100vh;
 	width: 67%;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 	margin-left: 100px;
-	justify-content: space-evenly;
+	justify-content: space-between;
 }
 
 .row-80 {
 	width: 80%;
 }
 
-.lbl-display {
-	margin: 25px 0 70px 0;
+.unit-display-wrapper {
+	margin-top: 3vh;
 }
 
 .dark-mode-icon {
@@ -295,8 +296,7 @@ select {
 .unit-select {
 	display: flex;
 	justify-content: space-between;
-	margin: 25px 0 70px 0;
-	width: 15%;
+	width: 100px;
 }
 
 .lbl-unit-active {
@@ -323,8 +323,9 @@ select {
 
 .forecast-card {
 	color: var(--text-color-dark);
-	height: 180px;
-	width: 120px;
+	height: 18vh;
+	width: 16%;
+	min-width: 92px;
 	background-color: var(--secondary-color-dark);
 }
 
@@ -341,7 +342,6 @@ select {
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: flex-start;
-	margin-top: 70px;
 }
 
 .highlights h3 {
@@ -356,20 +356,20 @@ select {
 }
 .highlight-cards-row-2 {
 	width: 100%;
-	margin-top: 50px;
+	margin-top: 40px;
 }
 
 .highlight-card {
 	color: var(--text-color-dark);
 	background-color: var(--secondary-color-dark);
-	width: 330px;
+	width: 45%;
 }
 
 .highlight-card-l {
-	height: 200px;
+	height: 19vh;
 }
 .highlight-card-s {
-	height: 170px;
+	height: 15vh;
 }
 
 .highlight-footer {
@@ -412,7 +412,7 @@ select {
 }
 
 .footer {
-	margin: 140px 0 50px 0;
+	margin-bottom: 5vh;
 }
 
 .footer p {
@@ -436,203 +436,32 @@ select {
 	margin-top: 50%;
 }
 
-@media screen and (min-width: 2000px) {
-	* {
-		font-size: 22px;
-	}
-
-	.main-container {
-		max-width: 1980px;
-		min-width: 1500px;
-	}
-
-	.summary {
+@media screen and (max-width: 1400px) {
+	.App {
 		justify-content: space-between;
-		width: 600px;
-	}
-
-	.sum-head {
-		margin-top: 4vh;
-	}
-
-	.summary-img-container {
-		height: 25%;
-	}
-
-	.summary-temp-desc {
-		height: 30%;
-	}
-
-	.date-location-container {
-		margin-bottom: 6vh;
-	}
-
-	.date {
-		min-width: 200px;
-		margin-bottom: 1vh;
-	}
-
-	.location {
-		min-width: 130px;
-	}
-
-	.main {
-		justify-content: space-between;
-		min-width: 1400px;
-	}
-
-	.btn-open-search {
-		height: 50px;
-		width: 180px;
-	}
-
-	.lbl-display {
-		margin: 0;
-	}
-
-	.lbl-circle {
-		height: 50px;
-		width: 50px;
-	}
-
-	.unit-select {
-		margin: 0;
-		width: 18%;
-	}
-
-	.unit-display-wrapper {
-		margin-top: 4vh;
-		margin-bottom: 5vh;
-	}
-
-	.forecast-card {
-		height: 20vh;
-		width: 15%;
-	}
-
-	.row-80 {
-		width: 90%;
-	}
-
-	.highlights {
-		margin-top: 5vh;
-	}
-
-	.highlight-card-l {
-		height: 20vh;
-		width: 45%;
-	}
-
-	.highlight-card-s {
-		height: 14vh;
-		width: 45%;
-	}
-
-	.footer {
-		margin-bottom: 6vh;
 	}
 }
 
-/* @media screen and (max-width: 1590px) {
-	.App {
-		max-height: 100vh;
-		min-height: 100vh;
-		display: flex;
-		justify-content: center;
-		background-color: var(--primary-color-dark);
-		position: relative;
+@media screen and (min-width: 1900px) {
+	.main-container {
+		min-width: 1600px;
+	}
+}
+
+@media screen and (min-width: 2600px) {
+	* {
+		font-size: 18px;
 	}
 
 	.main-container {
-		display: flex;
-		min-width: 100vw;
-		max-width: 100vw;
-		max-height: 100vh;
-		min-height: 100vh;
-		justify-content: flex-start;
-	}
-
-	.summary {
-		background-color: var(--secondary-color-dark);
-		height: 100%;
-		width: 35%;
-		justify-content: space-evenly;
+		min-width: 2000px;
 	}
 
 	.summary-img-container {
-		height: 280px !important;
-	}
-
-	.sum-head {
-		margin-top: 2%;
-	}
-
-	.btn-open-search {
-		margin-left: 5%;
+		height: 30%;
 	}
 
 	.summary-temp-desc {
-		height: 29%;
-		margin-bottom: 5%;
-		justify-content: space-evenly;
+		height: 25%;
 	}
-
-	.summary-temp-num {
-		font-size: 500%;
-	}
-
-	.main {
-		margin-left: 0;
-		width: 65%;
-		max-height: 20%;
-		justify-content: flex-start;
-	}
-
-	.highlights {
-		margin-top: 3%;
-	}
-
-	.highlight-cards-row-1 {
-		margin-top: 3%;
-	}
-
-	.highlight-cards-row-2 {
-		margin-top: 2%;
-	}
-
-	.highlight-card-l {
-		height: 120px;
-		justify-content: space-around;
-	}
-
-	.highlight-card-l span {
-		font-size: 250%;
-	}
-
-	.highlight-card-s {
-		height: 100px;
-		justify-content: space-evenly;
-	}
-
-	.highlight-card-s span {
-		font-size: 250%;
-	}
-
-	.footer {
-		margin-top: 60px;
-	}
-
-	.lbl-display {
-		margin: 10px 0 15px 0;
-	}
-
-	.unit-select {
-		margin: 10px 0 15px 0;
-		width: 20%;
-	}
-
-	.spinner {
-		position: absolute;
-		top: 50%;
-	}
-} */
+}
