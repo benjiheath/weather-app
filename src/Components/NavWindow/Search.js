@@ -12,6 +12,7 @@ const Search = () => {
 	const [resultsLoading, setResultsLoading] = useState(false);
 	const [isNullResults, setIsNullResults] = useState(false);
 	const [fieldIsEmpty, setFieldIsEmpty] = useState(false);
+	const [tooManyResults, setTooManyResults] = useState(false);
 	const [searchResults, setSearchResults] = useState(null);
 
 	// fetch search results
@@ -37,7 +38,16 @@ const Search = () => {
 			// if no results are returned, exit fn & alert user
 			if (!response.data[0]) {
 				setIsNullResults(true);
+				return;
 			}
+
+			// if too many results returned, ask user to make query more specific
+			if (response.data.length > 11) {
+				setTooManyResults(true);
+				setResultsLoading(false);
+				return;
+			}
+
 			// if results, push to state so they can be displayed
 			setSearchResults(response.data);
 			setResultsLoading(false);
@@ -70,6 +80,7 @@ const Search = () => {
 					value={searchInput}
 					onChange={(e) => {
 						setFieldIsEmpty(false);
+						setTooManyResults(false);
 						setSearchInput(e.target.value);
 					}}
 					className={fieldIsEmpty ? "empty-input" : ""}
@@ -80,6 +91,12 @@ const Search = () => {
 			</div>
 			<div className="search-results-wrapper row-80">
 				{resultsLoading && <Spinner override={override} />}
+				{tooManyResults && (
+					<p>
+						Too many results - Please search something more
+						specific
+					</p>
+				)}
 				{isNullResults && <p>No locations match your query.</p>}
 				{fieldIsEmpty && <p>Please enter a search term</p>}
 				{searchResults &&
