@@ -5,7 +5,6 @@ import { UserLocationContext } from "../UserLocationContext";
 export const ForecastCards = () => {
 	const { weatherData } = useContext(UserLocationContext);
 	const next5Days = weatherData.consolidated_weather.filter((_, idx) => idx !== 0);
-	console.log(next5Days);
 
 	return (
 		<div className="flex-row-between row-80">
