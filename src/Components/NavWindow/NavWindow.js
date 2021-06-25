@@ -6,18 +6,19 @@ import Summary from "./Summary";
 import Search from "./Search";
 
 const SearchAndSummary = () => {
-	const { setWeatherData, setLoading } = useContext(UserLocationContext);
+	const { setWeatherData, reloading, setReloading } = useContext(UserLocationContext);
 	const [showSearch, setShowSearch] = useState(false);
 
 	const setNewLocation = async (locationID) => {
 		// get weather info using cityID
 		try {
-			setLoading(true);
+			setReloading(true);
 			const responseWeather = await axios.get(
 				`https://cors-anywhere.herokuapp.com/http://www.metaweather.com/api/location/${locationID}`
 			);
 			setWeatherData(responseWeather.data);
-			setLoading(false);
+			setReloading(false);
+			setShowSearch(false);
 		} catch (error) {
 			console.error("Error with selected location:", error);
 		}

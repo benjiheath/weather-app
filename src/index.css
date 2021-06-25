@@ -395,7 +395,7 @@ select {
 .dir-icon {
 	width: 20px;
 	height: 20px;
-	transform: rotate(-150deg);
+	/* transform: rotate(-150deg); */
 }
 
 .bar-wrapper {

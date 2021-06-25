@@ -9,6 +9,7 @@ import Spinner from "./Components/Spinner";
 function App() {
 	const [userLocationID, setUserLocationID] = useState(null);
 	const [isLoading, setLoading] = useState(true);
+	const [reloading, setReloading] = useState(false);
 	const [isError, setError] = useState(false);
 	const [weatherData, setWeatherData] = useState(null);
 	const [dates, setDates] = useState(null);
@@ -131,6 +132,8 @@ function App() {
 						setTempUnit,
 						setWeatherData,
 						userLocationID,
+						reloading,
+						setReloading,
 					}}
 				>
 					{!isLoading && weatherData && dates && (

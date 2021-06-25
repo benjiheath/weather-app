@@ -1,6 +1,47 @@
 import { MdNavigation } from "react-icons/md";
 
-const HighlightCard = ({ className, title, value, unit, footerText, footerIcon, footerBar }) => {
+const HighlightCard = ({
+	windDirection,
+	weatherData,
+	className,
+	title,
+	value,
+	unit,
+	footerText,
+	footerIcon,
+	footerBar,
+}) => {
+	const determineNavIconDirection = () => {
+		switch (windDirection) {
+			case "N":
+				return "rotate(0deg)";
+			case "E":
+				return "rotate(90deg)";
+			case "S":
+				return "rotate(180deg)";
+			case "W":
+				return "rotate(-90deg)";
+			case "WSW":
+			case "SW":
+			case "SSW":
+				return "rotate(-135deg)";
+			case "NNW":
+			case "NW":
+			case "WNW":
+				return "rotate(-45deg)";
+			case "NNE":
+			case "NE":
+			case "ENE":
+				return "rotate(45deg)";
+			case "ESE":
+			case "SE":
+			case "SSE":
+				return "rotate(135deg)";
+			default:
+				return null;
+		}
+	};
+
 	return (
 		<div className={className}>
 			<p>{title}</p>
@@ -22,7 +63,12 @@ const HighlightCard = ({ className, title, value, unit, footerText, footerIcon, 
 			>
 				{footerIcon && (
 					<label className="lbl-circle lbl-dir flex-center">
-						<MdNavigation className="dir-icon" />
+						<MdNavigation
+							className="dir-icon"
+							style={{
+								transform: determineNavIconDirection(),
+							}}
+						/>
 					</label>
 				)}
 				<p>{footerText}</p>

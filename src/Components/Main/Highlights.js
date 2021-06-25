@@ -1,9 +1,10 @@
 import HighlightCard from "./HighlightCard";
 import { useContext } from "react";
 import { UserLocationContext } from "../UserLocationContext";
+import Spinner from "../Spinner";
 
 const Highlights = () => {
-	const { weatherData } = useContext(UserLocationContext);
+	const { weatherData, reloading } = useContext(UserLocationContext);
 	const todaysData = weatherData.consolidated_weather[0];
 
 	// Card 1: Wind
@@ -17,39 +18,46 @@ const Highlights = () => {
 	const airPressure = Math.round(todaysData.air_pressure);
 
 	return (
-		<div className="highlights row-80">
-			<h3>Today's Highlights</h3>
-			<div className="highlight-cards-row-1 flex-row-between">
-				<HighlightCard
-					className="highlight-card highlight-card-l flex-column-even"
-					title={"Wind status"}
-					value={windStatus}
-					unit={"kmph"}
-					footerText={windDirection}
-					footerIcon={true}
-				/>
-				<HighlightCard
-					className="highlight-card highlight-card-l flex-column-even"
-					title={"Humidity"}
-					value={humidity}
-					unit={"%"}
-					footerBar={true}
-				/>
-			</div>
-			<div className="highlight-cards-row-2 flex-row-between">
-				<HighlightCard
-					className="highlight-card highlight-card-s flex-column-even"
-					title={"Visibility"}
-					value={visibility}
-					unit={"km"}
-				/>
-				<HighlightCard
-					className="highlight-card highlight-card-s flex-column-even"
-					title={"Air Pressure"}
-					value={airPressure}
-					unit={"mb"}
-				/>
-			</div>
+		<div className={`${reloading ? "flex-center row-80" : "highlights row-80"}`}>
+			{reloading && <Spinner />}
+			{!reloading && (
+				<>
+					<h3>Today's Highlights</h3>
+					<div className="highlight-cards-row-1 flex-row-between">
+						<HighlightCard
+							className="highlight-card highlight-card-l flex-column-even"
+							title={"Wind status"}
+							value={windStatus}
+							unit={"kmph"}
+							footerText={windDirection}
+							footerIcon={true}
+							weatherData={weatherData}
+							windDirection={windDirection}
+						/>
+						<HighlightCard
+							className="highlight-card highlight-card-l flex-column-even"
+							title={"Humidity"}
+							value={humidity}
+							unit={"%"}
+							footerBar={true}
+						/>
+					</div>
+					<div className="highlight-cards-row-2 flex-row-between">
+						<HighlightCard
+							className="highlight-card highlight-card-s flex-column-even"
+							title={"Visibility"}
+							value={visibility}
+							unit={"km"}
+						/>
+						<HighlightCard
+							className="highlight-card highlight-card-s flex-column-even"
+							title={"Air Pressure"}
+							value={airPressure}
+							unit={"mb"}
+						/>
+					</div>
+				</>
+			)}
 		</div>
 	);
 };
