@@ -1,10 +1,10 @@
+import axios from "axios";
 import { useContext, useState } from "react";
-import { LeftWindowContext } from "./LeftWindowContext";
+import { LeftWindowContext } from "./NavContext";
 import SearchResult from "./SearchResult";
 import Spinner from "../Spinner";
 import { CgClose } from "react-icons/cg";
 import { css } from "@emotion/react";
-import axios from "axios";
 
 const Search = () => {
 	const { setShowSearch, setNewLocation } = useContext(LeftWindowContext);
@@ -48,6 +48,7 @@ const Search = () => {
 		}
 	};
 
+	// spinner styles
 	const override = css`
 		display: block;
 		margin: 50% auto;

@@ -1,4 +1,3 @@
-import { css } from "@emotion/react";
 import FadeLoader from "react-spinners/FadeLoader";
 
 const Spinner = ({ override }) => {

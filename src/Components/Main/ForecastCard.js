@@ -1,7 +1,6 @@
-import { s, c, h, hc, hr, lc, lr, sl, sn, t } from "../../resources/img/index";
-
 import { useContext } from "react";
 import { UserLocationContext } from "../UserLocationContext";
+import { s, c, h, hc, hr, lc, lr, sl, sn, t } from "../../resources/img/index";
 
 const ForecastCard = ({ day, idx }) => {
 	const { weatherData, dates, tempUnit } = useContext(UserLocationContext);

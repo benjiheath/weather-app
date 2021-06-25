@@ -17,7 +17,7 @@
 ## Description
 
 Basic weather app built with React. My intention with this was primarily to practice dealing with APIs. Here I use the [MetaWeather API](https://www.metaweather.com/api/) to fetch weather and location data, and the geolocation API to display weather for user's location by default.
-This was also my first attempt at accurately reproducing a design. There are some visual discrepancies between the finished product and the original, but I'm happy with the result.
+This was also my first attempt at adhering closely to a design. There are some visual discrepancies between my product and the original, but I'm happy with how it turned out.
 
 <br>
 
@@ -29,8 +29,7 @@ This was also my first attempt at accurately reproducing a design. There are som
 
 <h3>**todo**</h3>
 
-- Add icons to first two highlight cards
-- Make responsive
+- Increase responsiveness
 - Error handling
 - perform search on Enter keypress
 - further refactoring

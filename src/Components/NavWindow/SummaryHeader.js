@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { MdGpsFixed } from "react-icons/md";
-import { LeftWindowContext } from "./LeftWindowContext";
+import { LeftWindowContext } from "./NavContext";
 import { UserLocationContext } from "../UserLocationContext";
 
 const SummaryHeader = () => {

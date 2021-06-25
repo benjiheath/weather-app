@@ -4,7 +4,6 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 
 const DateLocation = () => {
 	const { weatherData, dates } = useContext(UserLocationContext);
-
 	const currentCity = weatherData.title;
 
 	return (

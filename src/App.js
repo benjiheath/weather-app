@@ -1,13 +1,10 @@
-import { useState, useEffect } from "react";
 import axios from "axios";
-// Contexts
+import { css } from "@emotion/react";
+import { useState, useEffect } from "react";
 import { UserLocationContext } from "./Components/UserLocationContext";
-// Components
-import SearchAndSummary from "./Components/SearchAndSummary/SearchAndSummary";
+import SearchAndSummary from "./Components/NavWindow/NavWindow";
 import Main from "./Components/Main/Main";
 import Spinner from "./Components/Spinner";
-
-import { css } from "@emotion/react";
 
 function App() {
 	const [userLocationID, setUserLocationID] = useState(null);
@@ -24,17 +21,15 @@ function App() {
 		});
 	};
 
-	// Isolate dates from weather data into new state
+	// Isolate dates from weather data
 	const getDates = () => {
 		return new Promise(
 			(resolve) => {
-				console.log("dates trying to execute before weatherdata");
 				if (weatherData) {
 					// map dates to "YYYY, MM, DD"
 					const dateStrings = weatherData.consolidated_weather.map(
 						(day) => day.applicable_date.split("-")
 					);
-					console.log(dateStrings);
 					// map to raw date format
 					const datesRaw = dateStrings.map(
 						(date) =>
@@ -45,9 +40,7 @@ function App() {
 								Number(date[2])
 							)
 					);
-					console.log(datesRaw);
-
-					// map to display format e.g. 'Fri, Jul 23'
+					// map to desired format e.g. 'Fri, Jul 23'
 					const options = {
 						day: "numeric",
 						month: "short",
@@ -70,29 +63,28 @@ function App() {
 		);
 	};
 
-	// on page load: get user location & set weather data to state
+	// On page load: get user location & set weather data to state
 	useEffect(() => {
 		const getData = async () => {
 			setError(false);
 			setLoading(true);
 
 			const pos = await getPos();
-			console.log("POS:", pos.coords.latitude, pos.coords.longitude);
 
 			try {
-				// get city ID for weather request
+				// Get city ID for weather request
 				const response = await axios.get(
 					`https://cors-anywhere.herokuapp.com/http://www.metaweather.com/api/location/search/?lattlong=${pos.coords.latitude},${pos.coords.longitude}`
 				);
 				const cityId = await response.data[0].woeid;
 
-				// get weather info using cityID
+				// Get weather info using cityID
 				const responseWeather = await axios.get(
 					`https://cors-anywhere.herokuapp.com/http://www.metaweather.com/api/location/${cityId}`
 				);
 
 				setWeatherData(responseWeather.data);
-				setUserLocationID(response.data[0].woeid); // store user location for 'gps' btn
+				setUserLocationID(response.data[0].woeid); // Store user location for 'gps' btn
 				setLoading(false);
 			} catch (error) {
 				setError(true);
@@ -106,7 +98,6 @@ function App() {
 				}
 			}
 		};
-
 		getData();
 	}, []);
 
@@ -115,6 +106,7 @@ function App() {
 		getDates();
 	}, [weatherData]);
 
+	// spinner styles
 	const override = css`
 		display: block;
 		position: absolute;

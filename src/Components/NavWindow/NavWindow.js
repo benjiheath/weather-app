@@ -1,13 +1,12 @@
-import { useState, useContext } from "react";
 import axios from "axios";
+import { useState, useContext } from "react";
+import { LeftWindowContext } from "./NavContext";
+import { UserLocationContext } from "../UserLocationContext";
 import Summary from "./Summary";
 import Search from "./Search";
-import { LeftWindowContext } from "./LeftWindowContext";
-import { UserLocationContext } from "../UserLocationContext";
 
 const SearchAndSummary = () => {
-	const { setWeatherData, setLoading, isLoading } = useContext(UserLocationContext);
-
+	const { setWeatherData, setLoading } = useContext(UserLocationContext);
 	const [showSearch, setShowSearch] = useState(false);
 
 	const setNewLocation = async (locationID) => {

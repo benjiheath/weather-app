@@ -1,5 +1,5 @@
 import UnitSelect from "./UnitSelect";
-import ForecastCards from "./ForecastCards";
+import ForecastCards from "./Forecast";
 import Highlights from "./Highlights";
 import Footer from "./Footer";
 

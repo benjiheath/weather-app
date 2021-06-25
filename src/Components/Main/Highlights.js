@@ -1,5 +1,5 @@
 import HighlightCard from "./HighlightCard";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { UserLocationContext } from "../UserLocationContext";
 
 const Highlights = () => {
@@ -25,14 +25,15 @@ const Highlights = () => {
 					title={"Wind status"}
 					value={windStatus}
 					unit={"kmph"}
-					footer={windDirection}
+					footerText={windDirection}
+					footerIcon={true}
 				/>
 				<HighlightCard
 					className="highlight-card highlight-card-l flex-column-even"
 					title={"Humidity"}
 					value={humidity}
 					unit={"%"}
-					footer={"insert bar"}
+					footerBar={true}
 				/>
 			</div>
 			<div className="highlight-cards-row-2 flex-row-between">
