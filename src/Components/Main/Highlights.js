@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { UserLocationContext } from "../UserLocationContext";
 
 const Highlights = () => {
-	const { weatherData } = useContext(UserLocationContext);
+	const { weatherData, darkMode, c } = useContext(UserLocationContext);
 	const todaysData = weatherData.consolidated_weather[0];
 
 	// Card 1: Wind
@@ -18,7 +18,7 @@ const Highlights = () => {
 
 	return (
 		<div className="highlights row-80">
-			<h3>Today's Highlights</h3>
+			<h3 style={{ color: !darkMode && c.lm.tc }}>Today's Highlights</h3>
 			<div className="highlight-cards-row-1 flex-row-between">
 				<HighlightCard
 					className="highlight-card highlight-card-l flex-column-even"

@@ -13,11 +13,34 @@ function App() {
 	const [weatherData, setWeatherData] = useState(null);
 	const [dates, setDates] = useState(null);
 	const [tempUnit, setTempUnit] = useState("C");
+	const [darkMode, setDarkMode] = useState(true);
+
+	// colors
+	const c = {
+		dm: {
+			c1: "#0d0c18",
+			c2: "#1e213a",
+			tc: "#e7e7eb",
+			tc2: "#a09fb1",
+			ic: "#6e707a",
+			ic2: "",
+		},
+		lm: {
+			c1: "white",
+			c2: "#e9f1ff",
+			tc: "#7a7a7a",
+			tc2: "",
+			ic: "#adadad",
+			ic2: "",
+		},
+	};
 
 	// Get user geolocation
 	const getPos = () => {
 		return new Promise((resolve, reject) => {
-			navigator.geolocation.getCurrentPosition(resolve, reject);
+			navigator.geolocation.getCurrentPosition(resolve, (reject) =>
+				console.log(reject, reject.code)
+			);
 		});
 	};
 
@@ -115,8 +138,11 @@ function App() {
 		border-color: red;
 	`;
 
+	// --primary-color-light: #d4dae7;
+	// --primary-color-dark: #0d0c18;
+
 	return (
-		<div className="App">
+		<div className="App" style={{ backgroundColor: darkMode ? c.dm.c1 : c.lm.c1 }}>
 			{isLoading && <Spinner override={override} />}
 			<div className="main-container">
 				{isError && <h1>Error</h1>}
@@ -131,6 +157,9 @@ function App() {
 						setTempUnit,
 						setWeatherData,
 						userLocationID,
+						darkMode,
+						setDarkMode,
+						c,
 					}}
 				>
 					{!isLoading && weatherData && dates && (

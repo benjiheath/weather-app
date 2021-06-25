@@ -2,8 +2,13 @@ import { useContext } from "react";
 import { UserLocationContext } from "../UserLocationContext";
 import { s, c, h, hc, hr, lc, lr, sl, sn, t } from "../../resources/img/index";
 
+//55, 86, 100
+
+//background-image: linear-gradient(rgb(30, 33, 58, 0.95), rgba(30, 33, 58, 0.95)),
+// url(./resources/img/Cloud-background.png);
+
 const Img = () => {
-	const { weatherData } = useContext(UserLocationContext);
+	const { weatherData, darkMode, c } = useContext(UserLocationContext);
 
 	const determineWeatherImg = () => {
 		switch (weatherData.consolidated_weather[0].weather_state_abbr) {
@@ -33,7 +38,12 @@ const Img = () => {
 	};
 
 	return (
-		<div className="summary-img-container flex-center">
+		<div
+			className="summary-img-container flex-center"
+			style={{
+				backgroundImage: !darkMode && "none",
+			}}
+		>
 			<img src={determineWeatherImg()} alt=""></img>
 		</div>
 	);

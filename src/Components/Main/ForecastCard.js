@@ -3,7 +3,7 @@ import { UserLocationContext } from "../UserLocationContext";
 import { s, c, h, hc, hr, lc, lr, sl, sn, t } from "../../resources/img/index";
 
 const ForecastCard = ({ day, idx }) => {
-	const { weatherData, dates, tempUnit } = useContext(UserLocationContext);
+	const { weatherData, dates, tempUnit, darkMode, c } = useContext(UserLocationContext);
 
 	const determineWeatherImg = () => {
 		switch (weatherData.consolidated_weather[idx].weather_state_abbr) {
@@ -42,14 +42,20 @@ const ForecastCard = ({ day, idx }) => {
 			: Math.round(weatherData.consolidated_weather[idx].max_temp * 1.8 + 32);
 
 	return (
-		<div className="forecast-card flex-column-even">
-			<p>{dates[idx + 1]}</p>
+		<div
+			className="forecast-card flex-column-even"
+			style={{
+				backgroundColor: darkMode ? c.dm.c2 : c.lm.c2,
+				boxShadow: !darkMode && "0px 0px 10px 1px #c7e9ff",
+			}}
+		>
+			<p style={{ color: !darkMode && c.lm.tc }}>{dates[idx + 1]}</p>
 			<img src={determineWeatherImg()} alt=""></img>
 			<div className="temps-high-low flex-row-even">
-				<p>
+				<p style={{ color: !darkMode && c.lm.tc }}>
 					{`${minTemp}`}&deg;{tempUnit}
 				</p>
-				<p>
+				<p style={{ color: !darkMode && c.lm.tc }}>
 					{`${maxTemp}`}&deg;{tempUnit}
 				</p>
 			</div>

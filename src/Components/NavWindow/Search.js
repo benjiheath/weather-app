@@ -15,7 +15,7 @@ const Search = () => {
 	const [tooManyResults, setTooManyResults] = useState(false);
 	const [searchResults, setSearchResults] = useState(null);
 
-	// fetch search results
+	// fetch search results - Search btn onClick
 	const getSearchResponse = async () => {
 		// if field empty, exit fn & alert user
 		if (!searchInput) {
@@ -38,6 +38,7 @@ const Search = () => {
 			// if no results are returned, exit fn & alert user
 			if (!response.data[0]) {
 				setIsNullResults(true);
+				setResultsLoading(false);
 				return;
 			}
 
