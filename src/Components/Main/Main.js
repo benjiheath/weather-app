@@ -4,14 +4,14 @@ import Highlights from "./Highlights";
 import Footer from "./Footer";
 
 const Main = () => {
-	return (
-		<div className="main">
-			<UnitSelect />
-			<ForecastCards />
-			<Highlights />
-			<Footer />
-		</div>
-	);
+  return (
+    <div className="main">
+      <UnitSelect />
+      <ForecastCards />
+      <Highlights />
+      <Footer />
+    </div>
+  );
 };
 
 export default Main;
