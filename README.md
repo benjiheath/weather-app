@@ -29,7 +29,7 @@ This was also my first attempt at adhering closely to a design. There are some v
 
 <h3>**todo**</h3>
 
-- Increase responsiveness
+- Adapt layout for mobile devices
 - Error handling
 - perform search on Enter keypress
 - further refactoring
