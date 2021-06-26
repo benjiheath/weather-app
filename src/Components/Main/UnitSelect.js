@@ -3,11 +3,11 @@ import { UserLocationContext } from "../UserLocationContext";
 import { CgDarkMode } from "react-icons/cg";
 
 const UnitSelect = () => {
-  const { tempUnit, setTempUnit } = useContext(UserLocationContext);
+  const { tempUnit, setTempUnit, darkMode, setDarkMode, c } = useContext(UserLocationContext);
 
   return (
     <div className="unit-display-wrapper flex-row-between row-80">
-      <label className="lbl-circle flex-center lbl-display">
+      <label className="lbl-circle flex-center lbl-display" onClick={() => setDarkMode(!darkMode)}>
         <CgDarkMode className="dark-mode-icon" />
       </label>
 

@@ -7,6 +7,11 @@
   --text-color-dark: #e7e7eb;
   --text-color-2-dark: #a09fb1;
   --lbl-btn-shadow-dark: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  --primary-color-light: #c7e9ff;
+  --secondary-color-light: #e9f1ff;
+  --text-color-light: #7a7a7a;
+  --icon-color-light: #adadad;
 }
 
 /* ----- Global styling ----- */
@@ -354,15 +359,16 @@ select {
   width: 100%;
   margin-top: 25px;
 }
+
 .highlight-cards-row-2 {
   width: 100%;
-  margin-top: 40px;
+  margin-top: 4vh;
 }
 
 .highlight-card {
   color: var(--text-color-dark);
   background-color: var(--secondary-color-dark);
-  width: 45%;
+  width: 47%;
 }
 
 .highlight-card-l {

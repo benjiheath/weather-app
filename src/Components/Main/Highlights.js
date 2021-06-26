@@ -35,7 +35,7 @@ const Highlights = () => {
               windDirection={windDirection}
             />
             <HighlightCard
-              className="highlight-card highlight-card-l flex-column-even"
+              className="highlight-card highlight-card-l flex-column-even "
               title={"Humidity"}
               value={humidity}
               unit={"%"}
@@ -50,7 +50,7 @@ const Highlights = () => {
               unit={"km"}
             />
             <HighlightCard
-              className="highlight-card highlight-card-s flex-column-even"
+              className="highlight-card highlight-card-s flex-column-even "
               title={"Air Pressure"}
               value={airPressure}
               unit={"mb"}

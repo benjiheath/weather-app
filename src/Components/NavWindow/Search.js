@@ -38,6 +38,7 @@ const Search = () => {
       // if no results are returned, exit fn & alert user
       if (!response.data[0]) {
         setIsNullResults(true);
+        setResultsLoading(false);
         return;
       }
 

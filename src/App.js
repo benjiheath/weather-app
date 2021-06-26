@@ -14,6 +14,17 @@ function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [dates, setDates] = useState(null);
   const [tempUnit, setTempUnit] = useState("C");
+  const [darkMode, setDarkMode] = useState(true);
+
+  // light mode colors
+  const c = {
+    c1: "white",
+    c2: "#e9f1ff",
+    tc: "#7a7a7a",
+    tc2: "",
+    ic: "#adadad",
+    ic2: "",
+  };
 
   // Get user geolocation
   const getPos = () => {
@@ -72,7 +83,7 @@ function App() {
         const response = await axios.get(
           `https://cors-anywhere.herokuapp.com/http://www.metaweather.com/api/location/search/?lattlong=${pos.coords.latitude},${pos.coords.longitude}`
         );
-        const cityId = await response.data[0].woeid;
+        const cityId = response.data[0].woeid;
 
         // Get weather info using cityID
         const responseWeather = await axios.get(
@@ -112,7 +123,7 @@ function App() {
   `;
 
   return (
-    <div className="App">
+    <div className="App" style={{ backgroundColor: !darkMode && c.c1 }}>
       {isLoading && <Spinner override={override} />}
       <div className="main-container">
         {isError && <h1>Error</h1>}
@@ -129,6 +140,9 @@ function App() {
             userLocationID,
             reloading,
             setReloading,
+            darkMode,
+            setDarkMode,
+            c,
           }}
         >
           {!isLoading && weatherData && dates && (
