@@ -7,11 +7,6 @@
   --text-color-dark: #e7e7eb;
   --text-color-2-dark: #a09fb1;
   --lbl-btn-shadow-dark: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-  --primary-color-light: #c7e9ff;
-  --secondary-color-light: #e9f1ff;
-  --text-color-light: #7a7a7a;
-  --icon-color-light: #adadad;
 }
 
 /* ----- Global styling ----- */
@@ -44,7 +39,6 @@ select {
   max-width: 100vw;
   min-width: 90%;
   justify-content: space-between;
-  max-height: 100vh;
 }
 
 /* ----- common containers ----- */
@@ -440,6 +434,14 @@ select {
 
 .spinner {
   margin-top: 50%;
+}
+
+.error {
+  position: absolute;
+  top: 43%;
+  left: 25%;
+  font-size: 200%;
+  text-align: center;
 }
 
 @media screen and (max-width: 1400px) {

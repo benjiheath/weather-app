@@ -14,17 +14,6 @@ function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [dates, setDates] = useState(null);
   const [tempUnit, setTempUnit] = useState("C");
-  const [darkMode, setDarkMode] = useState(true);
-
-  // light mode colors
-  const c = {
-    c1: "white",
-    c2: "#e9f1ff",
-    tc: "#7a7a7a",
-    tc2: "",
-    ic: "#adadad",
-    ic2: "",
-  };
 
   // Get user geolocation
   const getPos = () => {
@@ -94,7 +83,8 @@ function App() {
         setUserLocationID(response.data[0].woeid); // Store user location for 'gps' btn
         setLoading(false);
       } catch (error) {
-        setError(true);
+        setLoading(false);
+        setError(`An Error Occured: ${error.request.statusText}`);
         console.error("ERROR CAUGHT:", error);
         if (error.response) {
           console.log(error.response);
@@ -123,10 +113,10 @@ function App() {
   `;
 
   return (
-    <div className="App" style={{ backgroundColor: !darkMode && c.c1 }}>
+    <div className="App">
       {isLoading && <Spinner override={override} />}
-      <div className="main-container">
-        {isError && <h1>Error</h1>}
+      <div className="main-container" style={{ position: isError && "relative" }}>
+        {isError && <h1 className="error">{isError}</h1>}
         <UserLocationContext.Provider
           value={{
             isLoading,
@@ -140,9 +130,6 @@ function App() {
             userLocationID,
             reloading,
             setReloading,
-            darkMode,
-            setDarkMode,
-            c,
           }}
         >
           {!isLoading && weatherData && dates && (
