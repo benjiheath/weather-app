@@ -70,13 +70,13 @@ function App() {
       try {
         // Get city ID for weather request
         const response = await axios.get(
-          `https://cors-anywhere.herokuapp.com/http://www.metaweather.com/api/location/search/?lattlong=${pos.coords.latitude},${pos.coords.longitude}`
+          `https://weather-croxy.herokuapp.com/http://www.metaweather.com/api/location/search/?lattlong=${pos.coords.latitude},${pos.coords.longitude}`
         );
         const cityId = response.data[0].woeid;
 
         // Get weather info using cityID
         const responseWeather = await axios.get(
-          `https://cors-anywhere.herokuapp.com/http://www.metaweather.com/api/location/${cityId}`
+          `https://weather-croxy.herokuapp.com/http://www.metaweather.com/api/location/${cityId}`
         );
 
         setWeatherData(responseWeather.data);
