@@ -26,8 +26,7 @@ This was also my first attempt at adhering closely to a design. There are some v
 
 <h3>**todo**</h3>
 
-- Adapt layout for mobile devices
-- Error handling
+- Better error handling
 - allow search to run on Enter keypress
 - further refactoring
 

@@ -50,7 +50,7 @@ const HighlightCard = ({
         <p>{unit}</p>
       </div>
       {footerBar && (
-        <div className="bar-wrapper row-80">
+        <div className="bar-wrapper">
           <div className="bar" style={{ width: `${value}%` }}></div>
         </div>
       )}

@@ -30,7 +30,7 @@ const Search = () => {
       setIsNullResults(false);
 
       const response = await axios.get(
-        `https://cors-anywhere.herokuapp.com/http://www.metaweather.com/api/location/search/?query=${searchInput}`
+        `https://weather-croxy.herokuapp.com/http://www.metaweather.com/api/location/search/?query=${searchInput}`
       );
 
       setSearchInput("");

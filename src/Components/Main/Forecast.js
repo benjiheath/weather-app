@@ -8,7 +8,7 @@ export const ForecastCards = () => {
   const next5Days = weatherData.consolidated_weather.filter((_, idx) => idx !== 0);
 
   return (
-    <div className={`${reloading ? "flex-center" : "flex-row-between"} row-80`}>
+    <div className={`${reloading ? "flex-center" : "flex-row-between"} row-80 forecast-container`}>
       {reloading ? <Spinner /> : next5Days.map((day, idx) => <ForecastCard day={day} idx={idx} key={idx} />)}
     </div>
   );

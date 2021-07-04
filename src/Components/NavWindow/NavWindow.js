@@ -14,7 +14,7 @@ const SearchAndSummary = () => {
     try {
       setReloading(true);
       const responseWeather = await axios.get(
-        `https://cors-anywhere.herokuapp.com/http://www.metaweather.com/api/location/${locationID}`
+        `https://weather-croxy.herokuapp.com/http://www.metaweather.com/api/location/${locationID}`
       );
       setWeatherData(responseWeather.data);
       setReloading(false);
