@@ -14,19 +14,19 @@
   </h3>
 </div>
 
-## Description
+- Basic single-page weather app built with React as a way to practice dealing with APIs
+- Using the [MetaWeather API](https://www.metaweather.com/api/) to fetch weather and location data, and the geolocation API to display weather for user's location by default
+- This was also my first attempt at accurately replicating a design. The CSS ended up relatively bloated but I'm happy with the visual result
 
-Basic weather app built with React. My intention with this was primarily to practice dealing with APIs. Here I use the [MetaWeather API](https://www.metaweather.com/api/) to fetch weather and location data, and the geolocation API to display weather for user's location by default.
-This was also my first attempt at adhering closely to a design. There are some visual discrepancies between my product and the original and the CSS is somewhat bloated, but I'm happy with how it turned out.
+#### Changes I would like to make
 
-<h3>Changes I would like to make</h3>
+- Day/night mode toggling, which I've included a button for.
+- implement a weather map pop-up (perhaps with Leaftlet or Google APIs)
+- implement a cleaner styling solution, particularly for responsiveness
 
-- Day/night mode toggling, which I've included a button for. However I need to figure out how to implement it without making a mess of things
-- implement a weather map pop-up (will need a different API)
+#### ** todo **
 
-<h3>**todo**</h3>
-
-- Better error handling
+- error handling
 - allow search to run on Enter keypress
 - further refactoring
 

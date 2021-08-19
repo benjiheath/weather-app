@@ -1,10 +1,10 @@
-import axios from "axios";
-import { css } from "@emotion/react";
-import { useState, useEffect } from "react";
-import { UserLocationContext } from "./Components/UserLocationContext";
-import SearchAndSummary from "./Components/NavWindow/NavWindow";
-import Main from "./Components/Main/Main";
-import Spinner from "./Components/Spinner";
+import axios from 'axios';
+import { css } from '@emotion/react';
+import { useState, useEffect } from 'react';
+import { UserLocationContext } from './Components/UserLocationContext';
+import SearchAndSummary from './Components/NavWindow/NavWindow';
+import Main from './Components/Main/Main';
+import Spinner from './Components/Spinner';
 
 function App() {
   const [userLocationID, setUserLocationID] = useState(null);
@@ -13,50 +13,13 @@ function App() {
   const [isError, setError] = useState(false);
   const [weatherData, setWeatherData] = useState(null);
   const [dates, setDates] = useState(null);
-  const [tempUnit, setTempUnit] = useState("C");
+  const [tempUnit, setTempUnit] = useState('C');
 
   // Get user geolocation
   const getPos = () => {
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(resolve, reject);
     });
-  };
-
-  // Isolate dates from weather data
-  const getDates = () => {
-    return new Promise(
-      (resolve) => {
-        if (weatherData) {
-          // map dates to "YYYY, MM, DD"
-          const dateStrings = weatherData.consolidated_weather.map((day) => day.applicable_date.split("-"));
-          // map to raw date format
-          const datesRaw = dateStrings.map(
-            (date) =>
-              new Date(
-                Number(date[0]),
-                // needed to fix with -1 as month is 0 based
-                Number(date[1] - 1),
-                Number(date[2])
-              )
-          );
-          // map to desired format e.g. 'Fri, Jul 23'
-          const options = {
-            day: "numeric",
-            month: "short",
-            weekday: "short",
-          };
-          const intlDates = datesRaw.map((date) =>
-            new Intl.DateTimeFormat(navigator.language, options).format(date)
-          );
-          setDates(intlDates);
-          resolve(dates);
-        }
-      },
-      (reject) => {
-        new Error(reject);
-        console.log("DATE ERROR:", reject);
-      }
-    );
   };
 
   // On page load: get user location & set weather data to state
@@ -85,13 +48,12 @@ function App() {
       } catch (error) {
         setLoading(false);
         setError(`An Error Occured: ${error.request.statusText}`);
-        console.error("ERROR CAUGHT:", error);
         if (error.response) {
           console.log(error.response);
         } else if (error.request) {
           console.log(error.request);
         } else {
-          console.log("Error", error.message);
+          console.log('Error', error.message);
         }
       }
     };
@@ -100,6 +62,44 @@ function App() {
 
   // only get dates once weather state updated
   useEffect(() => {
+    // Isolate dates from weather data
+    const getDates = () => {
+      return new Promise(
+        (resolve) => {
+          if (weatherData) {
+            // map dates to "YYYY, MM, DD"
+            const dateStrings = weatherData.consolidated_weather.map((day) =>
+              day.applicable_date.split('-')
+            );
+            // map to raw date format
+            const datesRaw = dateStrings.map(
+              (date) =>
+                new Date(
+                  Number(date[0]),
+                  // needed to fix with -1 as month is 0 based
+                  Number(date[1] - 1),
+                  Number(date[2])
+                )
+            );
+            // map to desired format e.g. 'Fri, Jul 23'
+            const options = {
+              day: 'numeric',
+              month: 'short',
+              weekday: 'short',
+            };
+            const intlDates = datesRaw.map((date) =>
+              new Intl.DateTimeFormat(navigator.language, options).format(date)
+            );
+            setDates(intlDates);
+            resolve(null);
+          }
+        },
+        (reject) => {
+          new Error(reject);
+          console.log('getDates rejected:', reject);
+        }
+      );
+    };
     getDates();
   }, [weatherData]);
 
@@ -113,10 +113,10 @@ function App() {
   `;
 
   return (
-    <div className="App">
+    <div className='App'>
       {isLoading && <Spinner override={override} />}
-      <div className="main-container" style={{ position: isError && "relative" }}>
-        {isError && <h1 className="error">{isError}</h1>}
+      <div className='main-container' style={{ position: isError && 'relative' }}>
+        {isError && <h1 className='error'>{isError}</h1>}
         <UserLocationContext.Provider
           value={{
             isLoading,

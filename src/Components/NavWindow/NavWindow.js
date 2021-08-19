@@ -1,12 +1,12 @@
-import axios from "axios";
-import { useState, useContext } from "react";
-import { LeftWindowContext } from "./NavContext";
-import { UserLocationContext } from "../UserLocationContext";
-import Summary from "./Summary";
-import Search from "./Search";
+import axios from 'axios';
+import { useState, useContext } from 'react';
+import { LeftWindowContext } from './NavContext';
+import { UserLocationContext } from '../UserLocationContext';
+import Summary from './Summary';
+import Search from './Search';
 
 const SearchAndSummary = () => {
-  const { setWeatherData, reloading, setReloading } = useContext(UserLocationContext);
+  const { setWeatherData, setReloading } = useContext(UserLocationContext);
   const [showSearch, setShowSearch] = useState(false);
 
   const setNewLocation = async (locationID) => {
@@ -20,7 +20,7 @@ const SearchAndSummary = () => {
       setReloading(false);
       setShowSearch(false);
     } catch (error) {
-      console.error("Error with selected location:", error);
+      console.error('Error with selected location:', error);
     }
   };
 
